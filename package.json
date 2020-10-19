@@ -1,0 +1,9 @@
+{
+  "name": "freeton",
+  "version": "0.1.1",
+  "description": "Freeton package",
+  "main": "src/index.js",
+  "author": "qwertys318, maxvx",
+  "license": "MIT",
+  "private": false
+}
