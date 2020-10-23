@@ -1,7 +1,10 @@
 import providers from "./providers";
-import Contract from "./Contract";
+import utils from "./utils";
+import {Contract, ContractFactory} from "./contract";
 
 export default {
   providers,
-  Contract
+  utils,
+  Contract,
+  ContractFactory
 }

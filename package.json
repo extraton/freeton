@@ -1,9 +1,10 @@
 {
   "name": "freeton",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Freeton package",
   "main": "src/index.js",
   "author": "qwertys318, maxvx",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "repository": "https://github.com/extraton/freeton"
 }
