@@ -1,4 +1,4 @@
-import {Contract} from "./";
+import {Contract} from "./index";
 import ContractDeployProcessing from "./ContractDeployProcessing";
 
 export default class ContractFactory {

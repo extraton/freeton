@@ -7,6 +7,9 @@ export default class ExtensionProvider {
   getSigner() {
     return new ExtensionWalletSigner(this);
   }
+  getVersion() {
+    return this.entry.request('getVersion');
+  }
   getNetwork() {
     return this.entry.request('getNetwork');
   }
