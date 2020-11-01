@@ -1,12 +1,20 @@
 import {Contract} from "./index";
 import ContractDeployProcessing from "./ContractDeployProcessing";
 
-export default class ContractFactory {
-  constructor(abi, imageBase64, signer, options) {
+export default class ContractBuilder {
+  constructor(signer, abi, imageBase64) {
+    this.signer = signer;
     this.abi = abi;
     this.imageBase64 = imageBase64;
-    this.signer = signer;
-    this.options = options;
+    this.options = {initParams: {}};
+  }
+
+  setInitialAmount(amount) {
+    this.options.initAmount = amount;
+  }
+
+  setInitialParams(params) {
+    this.options.initParams = params;
   }
 
   async deploy(constructorParams = {}) {

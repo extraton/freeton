@@ -1,7 +1,7 @@
 import Contract from "./Contract";
-import ContractFactory from "./ContractFactory";
+import ContractBuilder from "./ContractBuilder";
 
 export {
   Contract,
-  ContractFactory
+  ContractBuilder
 }

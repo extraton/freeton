@@ -1,19 +1,22 @@
 import Signer from "../signer/Signer";
 
-export default class ExtensionProvider {
-  constructor(address, abi, signerOrProvider) {
+export default class Contract {
+  constructor(signerOrProvider, abi, address) {
     this.address = address;
-    this.abi = abi;
-    this.signerOrProvider = signerOrProvider;
     this.deployProcessing = null;
     this.functions = {};
-    const provider = signerOrProvider instanceof Signer ? signerOrProvider.getProvider() : signerOrProvider;
+    const isSigner = signerOrProvider instanceof Signer;
+    const provider = isSigner ? signerOrProvider.getProvider() : signerOrProvider;
 
     for (const func of abi.functions) {
-      if (func.name === constructor) {
+      if (func.name === 'constructor') {
         continue;
       }
-      this.functions[func.name] = () => provider.runGet(address, abi, func.name);
+      this.functions[func.name] = {};
+      this.functions[func.name].runGet = (params = {}) => provider.runGet(address, abi, func.name, params);
+      if (isSigner) {
+        this.functions[func.name].run = (params = {}) => provider.run(address, abi, func.name, params);
+      }
     }
   }
 

@@ -13,8 +13,11 @@ export default class ExtensionProvider {
   getNetwork() {
     return this.entry.request('getNetwork');
   }
-  runGet(address, abi, method) {
-    return this.entry.request('runGet', {address, abi, method});
+  run(address, abi, method, params) {
+    return this.entry.request('run', {address, abi, method, params});
+  }
+  runGet(address, abi, method, params) {
+    return this.entry.request('runGet', {address, abi, method, params});
   }
   deploy(abi, imageBase64, options, constructorParams) {
     return this.entry.request('deploy', {abi, imageBase64, options, constructorParams});
