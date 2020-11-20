@@ -35,7 +35,7 @@ export default class ExtensionProvider {
     return this.entry.request('waitDeploy', {message, processingState});
   }
 
-  transfer(address, amount, network, payload) {
-    return this.entry.request('transfer', {address, amount, network, payload});
+  transfer(address, amount, network, bounce, payload) {
+    return this.entry.request('transfer', {address, amount, network, bounce, payload});
   }
 }
