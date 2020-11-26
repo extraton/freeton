@@ -1,3 +1,5 @@
+import ContractMessageProcessing from "../contract/ContractMessageProcessing";
+
 export default class Wallet {
   constructor(signer, address) {
     this.signer = signer;
@@ -12,10 +14,11 @@ export default class Wallet {
     return this.address;
   }
 
-  transfer(address, amount, bounce = true, payload = null) {
+  async transfer(address, amount, bounce = true, payload = null) {
     const signer = this.getSigner();
     const provider = signer.getProvider();
     const network = signer.getNetwork();
-    return provider.transfer(address, amount, network, bounce, payload);
+    const {message, processingState} = await provider.transfer(address, amount, network, bounce, payload);
+    return new ContractMessageProcessing(message, processingState, signer);
   }
 }
