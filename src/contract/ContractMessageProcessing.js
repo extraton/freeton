@@ -1,4 +1,4 @@
-export default class ContractDeployProcessing {
+export default class ContractMessageProcessing {
   constructor(message, processingState, signer) {
     this.message = message;
     this.processingState = processingState;
