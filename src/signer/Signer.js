@@ -1,9 +1,10 @@
-import Wallet from "../wallet/Wallet";
+import {Wallet} from "../wallet";
 
 export default class Signer {
-  constructor(provider, network, address) {
+  constructor(provider, network, address, publicKey) {
     this.provider = provider;
     this.network = network;
+    this.publicKey = publicKey;
     this.wallet = new Wallet(this, address);
   }
 
@@ -17,5 +18,9 @@ export default class Signer {
 
   getNetwork() {
     return this.network;
+  }
+
+  getPublicKey() {
+    return this.publicKey;
   }
 }

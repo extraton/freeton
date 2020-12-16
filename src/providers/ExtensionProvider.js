@@ -8,7 +8,8 @@ export default class ExtensionProvider {
   async getSigner() {
     const address = await this.entry.request('getAddress');
     const network = await this.getNetwork();
-    return new ExtensionWalletSigner(this, network, address);
+    const publicKey = await this.getPublicKey();
+    return new ExtensionWalletSigner(this, network, address, publicKey);
   }
 
   getVersion() {
@@ -17,6 +18,10 @@ export default class ExtensionProvider {
 
   getNetwork() {
     return this.entry.request('getNetwork');
+  }
+
+  getPublicKey() {
+    return this.entry.request('getPublicKey');
   }
 
   run(address, abi, method, params) {
@@ -39,7 +44,11 @@ export default class ExtensionProvider {
     return this.entry.request('waitRun', {message, processingState});
   }
 
-  transfer(address, amount, network, bounce, payload) {
-    return this.entry.request('transfer', {address, amount, network, bounce, payload});
+  transfer(walletAddress, address, amount, network, bounce, payload) {
+    return this.entry.request('transfer', {walletAddress, address, amount, network, bounce, payload});
+  }
+
+  confirmTransaction(walletAddress, txid, network) {
+    return this.entry.request('confirmTransaction', {walletAddress, txid, network});
   }
 }
