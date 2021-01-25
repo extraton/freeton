@@ -20,7 +20,7 @@ export default class ContractBuilder {
   async deploy(constructorParams = {}) {
     const provider = this.signer.getProvider();
     const {message, processingState} = await provider.deploy(this.abi, this.imageBase64, this.options, constructorParams);
-    const contract = new Contract(message.address, this.abi, this.signer);
+    const contract = new Contract(this.signer, this.abi, message.address);
     const deployProcessing = new ContractDeployProcessing(message, processingState, this.signer);
     contract.setDeployProcessing(deployProcessing);
     return contract;
