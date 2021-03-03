@@ -1,4 +1,4 @@
-import Signer from "../signer/Signer";
+import Signer from "../signer/Signer.js";
 
 export default class Contract {
   constructor(signerOrProvider, abi, address) {

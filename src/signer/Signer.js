@@ -1,4 +1,4 @@
-import {Wallet} from "../wallet";
+import {Wallet} from "../wallet/index.js";
 
 export default class Signer {
   constructor(provider, network, address, publicKey) {

@@ -1,5 +1,5 @@
-import Contract from "./Contract";
-import ContractBuilder from "./ContractBuilder";
+import Contract from "./Contract.js";
+import ContractBuilder from "./ContractBuilder.js";
 
 export {
   Contract,
