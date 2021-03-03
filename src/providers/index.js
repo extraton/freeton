@@ -1,4 +1,4 @@
-import ExtensionProvider from "./ExtensionProvider";
+import ExtensionProvider from "./ExtensionProvider.js";
 
 export default {
   ExtensionProvider

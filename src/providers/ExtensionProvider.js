@@ -1,4 +1,4 @@
-import ExtensionWalletSigner from "../signer/ExtensionWalletSigner";
+import ExtensionWalletSigner from "../signer/ExtensionWalletSigner.js";
 
 export default class ExtensionProvider {
   constructor(entry) {

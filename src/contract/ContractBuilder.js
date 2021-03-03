@@ -1,5 +1,5 @@
-import {Contract} from "./index";
-import ContractDeployProcessing from "./ContractDeployProcessing";
+import {Contract} from "./index.js";
+import ContractDeployProcessing from "./ContractDeployProcessing.js";
 
 export default class ContractBuilder {
   constructor(signer, abi, imageBase64) {

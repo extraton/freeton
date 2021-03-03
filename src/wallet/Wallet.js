@@ -1,4 +1,4 @@
-import ContractMessageProcessing from "../contract/ContractMessageProcessing";
+import ContractMessageProcessing from "../contract/ContractMessageProcessing.js";
 
 export default class Wallet {
   constructor(signer, address) {
