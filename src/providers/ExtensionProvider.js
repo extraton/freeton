@@ -32,6 +32,14 @@ export default class ExtensionProvider {
     return this.entry.request('runGet', {address, abi, method, params});
   }
 
+  callContractMethod(address, abi, method, input) {
+    return this.entry.request('callContractMethod', {address, abi, method, input});
+  }
+
+  runContractMethod(address, abi, method, input) {
+    return this.entry.request('runContractMethod', {address, abi, method, input});
+  }
+
   deploy(abi, imageBase64, options, constructorParams) {
     return this.entry.request('deploy', {abi, imageBase64, options, constructorParams});
   }
@@ -44,11 +52,23 @@ export default class ExtensionProvider {
     return this.entry.request('waitRun', {message, processingState});
   }
 
+  waitForTransaction(message, shardBlockId, abi) {
+    return this.entry.request('waitForTransaction', {message, shardBlockId, abi});
+  }
+
   transfer(walletAddress, address, amount, network, bounce, payload) {
     return this.entry.request('transfer', {walletAddress, address, amount, network, bounce, payload});
   }
 
   confirmTransaction(walletAddress, txid, network) {
     return this.entry.request('confirmTransaction', {walletAddress, txid, network});
+  }
+
+  getTokenList(walletAddress, network) {
+    return this.entry.request('getTokenList', {walletAddress, network});
+  }
+
+  transferToken(walletAddress, network, rootAddress, address, amount) {
+    return this.entry.request('transferToken', {walletAddress, network, rootAddress, address, amount});
   }
 }
