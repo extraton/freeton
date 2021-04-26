@@ -53,4 +53,23 @@ export default class Wallet {
     }
     return tokenList;
   }
+
+  async addToken(rootAddress) {
+    const signer = this.getSigner();
+    const provider = signer.getProvider();
+    const network = signer.getNetwork();
+    const tokenData = await provider.addToken(this.address, network, rootAddress);
+    return new Token(
+      this,
+      tokenData.type,
+      tokenData.name,
+      tokenData.symbol,
+      tokenData.balance,
+      tokenData.decimals,
+      tokenData.rootAddress,
+      tokenData.data,
+      tokenData.isActive,
+      tokenData.walletAddress,
+    );
+  }
 }

@@ -71,4 +71,17 @@ export default class ExtensionProvider {
   transferToken(walletAddress, network, rootAddress, address, amount) {
     return this.entry.request('transferToken', {walletAddress, network, rootAddress, address, amount});
   }
+
+  addToken(walletAddress, network, rootAddress) {
+    return this.entry.request('addToken', {walletAddress, network, rootAddress});
+  }
+
+  activateToken(walletAddress, network, rootAddress) {
+    return this.entry.request('activateToken', {walletAddress, network, rootAddress});
+  }
+
+  async addEventListener(listener) {
+    await this.entry.request('subscribeToEvents');
+    this.entry.eventListener = listener;
+  }
 }
