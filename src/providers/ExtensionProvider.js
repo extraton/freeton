@@ -5,6 +5,10 @@ export default class ExtensionProvider {
     this.entry = entry;
   }
 
+  async hasSigner() {
+    return this.entry.request('hasSigner');
+  }
+
   async getSigner() {
     const address = await this.entry.request('getAddress');
     const network = await this.getNetwork();
