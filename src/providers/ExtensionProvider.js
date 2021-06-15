@@ -84,6 +84,10 @@ export default class ExtensionProvider {
     return this.entry.request('activateToken', {walletAddress, network, rootAddress});
   }
 
+  sign(unsigned) {
+    return this.entry.request('sign', {unsigned});
+  }
+
   async addEventListener(listener) {
     await this.entry.request('subscribeToEvents');
     this.entry.eventListener = listener;

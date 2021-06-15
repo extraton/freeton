@@ -23,4 +23,8 @@ export default class Signer {
   getPublicKey() {
     return this.publicKey;
   }
+
+  sign(unsigned) {
+    return this.provider.sign(unsigned);
+  }
 }
